@@ -44,9 +44,9 @@ func main() {
 
 			fmt.Println(repo.GetHTMLURL())
 
-			desc := wordwrap.String(repo.GetDescription(), 80)
+			desc := repo.GetDescription()
 			if desc != "" {
-				fmt.Println("Desc:", desc)
+				fmt.Println(wordwrap.String("Desc: "+desc, 80))
 			}
 
 			lang := repo.GetLanguage()
@@ -59,7 +59,7 @@ func main() {
 
 			if len(repo.Topics) != 0 {
 				topics := strings.Join(repo.Topics, ", ")
-				fmt.Println("Topics:", topics)
+				fmt.Println(wordwrap.String("Topics: "+topics, 80))
 			}
 
 			fmt.Println()
